@@ -47,7 +47,7 @@ endian = 'little'
 cd mesa/build
 PKG_CONFIG_PATH=/usr/local/lib/arm-linux-gnueabihf/pkgconfig CC=arm-linux-gnueabihf-gcc CXX=arm-linux-gnueabihf-g++ meson -Dgallium-drivers=panfrost -Dvulkan-drivers=panfrost -Dllvm=disabled --prefix=/opt/panfrost/arm-linux-gnueabihf --cross-file cross_armhf.txt
 ```
-- step4. 开启全局默认
+- step5. 开启全局默认
 ```bash
 sudo bash -c "echo '/opt/panfrost/arm-linux-gnueabihf/lib' >> /etc/ld.so.conf.d/0-panfrost.conf"
 sudo ldconfig
