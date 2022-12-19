@@ -6,18 +6,18 @@
 
 ## 第一章: GPU驱动
 
-    因为RK3588(S)的Linux补丁还没进主线，所以RK3588(S)内核版本暂停在了RockChip提供的5.10版本上
+因为RK3588(S)的Linux补丁还没进主线，所以RK3588(S)内核版本暂停在了RockChip提供的5.10版本上
 而5.10版本的内核，还没有合并Valhall(Mali-G57, Mali-G610 ...)支持
 
-    RK3588的厂商出场驱动可能会带上libmali, 支持OpenGL(ESv2) API，但可惜的是让它正确工作需要付出额外的成本
+RK3588的厂商出场驱动可能会带上libmali, 支持OpenGL(ESv2) API，但可惜的是让它正确工作需要付出额外的成本
 想让所有应用在默认情况下工作，我们需要mesa/panfrost支持
 
 ### Panfork简介
 
-    按我的理解, panfork是mesa/panfrost的User Space移植；驱动原理和libmali一样，但开源(意味着可以在自制系统上使用)、性能和兼容性更好.
+按我的理解, panfork是mesa/panfrost的User Space移植；驱动原理和libmali一样，但开源(意味着可以在自制系统上使用)、性能和兼容性更好.
 而且作为mesa的移植, 如果作者积极维护, 我们就能及时用上Linux主线的GPU驱动更新, 比如PanVK(Mali GPU的Vulkan驱动)
 
-    总之, 在默认情况下, panfork运转良好
+总之, 在默认情况下, panfork运转良好
 
 - refs
 ```txt
