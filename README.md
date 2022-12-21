@@ -42,7 +42,7 @@ sudo wget https://github.com/JeffyCN/rockchip_mirrors/raw/libmali/firmware/g610/
 ```
 - step2. 安装环境依赖
 ```bash
-sudo apt install build-essential meson git python3-mako libexpat1-dev bison flex libwayland-egl-backend-dev libxext-dev libxfixes-dev libxcb-glx0-dev libxcb-shm0-dev libxcb-dri2-0-dev libxcb-dri3-dev libxcb-present-dev libxshmfence-dev libxxf86vm-dev libxrandr-dev
+sudo apt install build-essential cmake meson git python3-mako libexpat1-dev bison flex libwayland-egl-backend-dev libxext-dev libxfixes-dev libxcb-glx0-dev libxcb-shm0-dev libxcb-dri2-0-dev libxcb-dri3-dev libxcb-present-dev libxshmfence-dev libxxf86vm-dev libxrandr-dev libwayland-dev libx11-xcb-dev
 ```
 - step3. 编译安装libdrm (覆盖原有的旧版)
 ```bash
@@ -63,8 +63,9 @@ sudo ninja install
 ```
 - step5. 编译安装panfork (安装到/opt/panfrost)
 ```
-mkdir build
-cd build
+git clone https://gitlab.com/panfork/mesa
+mkdir mesa/build
+cd mesa/build
 meson -Dgallium-drivers=panfrost -Dvulkan-drivers= -Dllvm=disabled --prefix=/opt/panfrost
 sudo ninja install
 ```
