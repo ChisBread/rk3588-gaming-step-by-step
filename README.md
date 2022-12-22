@@ -38,7 +38,7 @@ panfork https://gitlab.com/panfork/mesa
 ```
 - step1. 下载GPU固件到/lib/firmware
 ```bash
-sudo wget https://github.com/JeffyCN/rockchip_mirrors/raw/libmali/firmware/g610/mali_csffw.bin -P /lib/firmware/
+sudo wget https://github.com/JeffyCN/rockchip_mirrors/raw/libmali/firmware/g610/mali_csffw.bin -O /lib/firmware/mali_csffw.bin
 ```
 - step2. 安装环境依赖
 ```bash
@@ -83,7 +83,10 @@ echo /opt/panfrost/lib/aarch64-linux-gnu | sudo tee /etc/ld.so.conf.d/0-panfrost
 # sudo mv /etc/ld.so.conf.d/00-aarch64-mali.conf /etc/ld.so.conf.d/1-aarch64-mali.conf
 sudo ldconfig
 ```
-
+- 验证gpu负载
+```
+watch --no-title "cat /sys/devices/platform/fb000000.gpu/devfreq/fb000000.gpu/load | cut -d '@' -f 1 | awk '{ print \"GPU load: \"\$1\"%\"}'"
+```
 
 ## 第二章: Box86与Box64
 TODO
