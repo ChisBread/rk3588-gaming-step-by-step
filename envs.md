@@ -18,7 +18,17 @@ RK3588的厂商出场驱动可能会带上libmali, 支持OpenGL(ESv2) API，但�
 panfork https://gitlab.com/panfork/mesa
 关于panfork的讨论 https://github.com/armbian/build/pull/4476
 ```
-### Panfork 64位版 安装步骤
+### Panfork 64位版 安装步骤(PPA)
+
+Ubuntu 22.04(Jammy)用户, 可以从ppa安装
+
+```bash
+sudo add-apt-repository ppa:liujianfeng1994/panfork-mesa
+sudo apt dist-upgrade
+# 安装32位环境(可选)
+sudo apt install -y libegl-mesa0:armhf libgbm1:armhf libgl1-mesa-dri:armhf libglapi-mesa:armhf libglx-mesa0:armhf
+```
+### Panfork 64位版 安装步骤(编译安装)
 
 这一段照搬 [panfork](https://gitlab.com/panfork/mesa) ,并假设你的架构是aarch64
 
