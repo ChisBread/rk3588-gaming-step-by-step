@@ -4,7 +4,7 @@
 sudo dpkg --add-architecture armhf
 sudo apt update
 # 这里顺便安装了部分常见依赖, 可以按需去除
-sudo apt install libc6:armhf libncurses5:armhf libsdl2*:armhf libopenal*:armhf libpng*:armhf libfontconfig*:armhf libXcomposite*:armhf libbz2-dev:armhf libXtst*:armhf
+sudo apt install libc6:armhf libncurses5:armhf libsdl2\*:armhf libopenal\*:armhf libpng\*:armhf libfontconfig\*:armhf libXcomposite\*:armhf libbz2-dev:armhf libXtst\*:armhf
 # 这些是工具链和编译环境, 如果提示缺少依赖, google一下就能找到对应的包
 sudo apt install gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf
 sudo apt install libexpat1-dev:armhf libwayland-egl-backend-dev:armhf libxext-dev:armhf libxfixes-dev:armhf libxcb-glx0-dev:armhf libxcb-shm0-dev:armhf libxcb-dri2-0-dev:armhf libxcb-dri3-dev:armhf libxcb-present-dev:armhf libxshmfence-dev:armhf libxxf86vm-dev:armhf libxrandr-dev:armhf libx11-xcb-dev:armhf

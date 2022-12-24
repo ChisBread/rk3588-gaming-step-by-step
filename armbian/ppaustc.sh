@@ -1,0 +1,1 @@
+sudo sed -i -e "s@http.*://ppa.launchpadcontent.net@https://launchpad.proxy.ustclug.org@g" /etc/apt/sources.list.d/*
