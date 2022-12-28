@@ -3,7 +3,7 @@
 - rk3588(s) 通用优化
 ```bash
 # step1. 部署系统优化服务
-wget -O - https://github.com/ChisBread/rk3588-gaming-step-by-step/raw/main/rk3588-enhance/deploy.sh | bash
+wget -O - https://github.com/ChisBread/rk3588-gaming-step-by-step/raw/main/rk3588-enhance/deploy.sh | sudo bash
 # step2. 默认平衡模式
 echo 'RK3588_GOVERNOR_DEFAULT=balance' > /etc/sysctl.d/rk3588-governor
 ## or 默认性能模式
