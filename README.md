@@ -21,7 +21,7 @@ sudo apt update && sudo apt dist-upgrade
 # 游戏提示
 - war3
   - 1. 下载免安装中文版war3
-  - 2. 安装、启动malior(确保启动时的LAND为zh_CN.UTF-8)
+  - 2. 安装、启动malior(确保启动时的LANG为zh_CN.UTF-8)
   - 3. 使用 `malior install wine` 安装wine环境
   - 3. 使用 `malior winetricks -q fakechinese wenquanyi` 解决中文乱码
   - 5. 解压war3到 `~/.local/malior/war3-1.24e` 确保目录下有 `War3.exe`
