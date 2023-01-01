@@ -9,17 +9,12 @@
 3. 桌面(可选): 建议GNOME+Wayland的组合
 4. 提速环境变量(可选): 将PAN_MESA_DEBUG=gofaster作为系统默认环境变量
 5. 测试: 安装glmark2-es2-wayland并跑分
-
-# 开源游戏篇
-## [Xonotic](https://en.wikipedia.org/wiki/Xonotic)
-- 见[官方教程](https://gitlab.com/xonotic/xonotic/-/wikis/Repository_Access)
-- TODO 汉化
-## [OpenMW](https://en.wikipedia.org/wiki/OpenMW)
-- 见[官方教程](https://openmw.readthedocs.io/en/latest/manuals/installation/install-openmw.html)
-- TODO 汉化
-# 游戏平台篇
-## Steam
-TODO
-## Retroarch
-TODO
+# 特殊处理
+- 一些镜像自带的桌面系统(比如香橙派5)不支持panfrost驱动
+```
+sudo apt-mark unhold xserver-common xserver-xorg-core xserver-xorg-dev xserver-xorg-legacy
+sudo apt update && sudo apt dist-upgrade
+```
+# malior
+- 桌面替换完成后可以使用[malior](https://github.com/ChisBread/malior)安装游戏和应用
 
