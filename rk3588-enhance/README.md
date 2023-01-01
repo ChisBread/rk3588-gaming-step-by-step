@@ -16,5 +16,6 @@ systemctl start rk3588-governor
 balance-governor.sh
 # performance-governor.sh
 ```
-- 香橙派5 CPU、GPU满血dtb
-  - 见[release](https://github.com/ChisBread/linux-orangepi/releases), ⚠️注意！⚠️加压有风险，请确保供电和散热足够
+- 香橙派5 CPU、GPU满血dtb, 以及带GPU性能优化补丁的kernel
+  - 见[release](https://github.com/ChisBread/linux-orangepi/releases)
+  - 关于linux-dtb-*的安装: ⚠️注意！⚠️加压有风险，请确保供电和散热足够
