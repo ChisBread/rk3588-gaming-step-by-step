@@ -18,3 +18,11 @@ sudo apt update && sudo apt dist-upgrade
 # malior
 - 桌面替换完成后可以使用[malior](https://github.com/ChisBread/malior)安装游戏和应用
 
+# 游戏提示
+- war3
+  - 1. 下载免安装中文版war3
+  - 2. 安装、启动malior(确保启动时的LAND为zh_CN.UTF-8)
+  - 3. 使用 `malior install wine` 安装wine环境
+  - 3. 使用 `malior winetricks -q fakechinese wenquanyi` 解决中文乱码
+  - 5. 解压war3到 `~/.local/malior/war3-1.24e` 确保目录下有 `War3.exe`
+  - 6. 运行 `malior wine "~/.local/malior/war3-1.24e/War3.exe -opengl -windows"`
