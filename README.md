@@ -4,25 +4,38 @@
 
 注意: 本文只是个用作参考的操作手册，不保证在某些刁钻的场景下适用
 
-1. 按照[环境安装](./gpu-envs.md)教程，安装GPU驱动、box86、box64
-2. 按照[性能优化](./rk3588-enhance/README.md)无痛解锁大约30%的性能
-3. 桌面(可选): 建议GNOME+Wayland的组合
-4. 提速环境变量(可选): 将PAN_MESA_DEBUG=gofaster作为系统默认环境变量
-5. 测试: 安装glmark2-es2-wayland并跑分
-# 特殊处理
-- 一些镜像自带的桌面系统(比如香橙派5)不支持panfrost驱动
-```
+# 快速开始
+- 第一步
+  - [环境安装](./gpu-envs.md) [性能优化](./rk3588-enhance/README.md)
+```bash
+# 标注为可选的, 可以暂时忽略
+# 0. 安装、启动malior
+wget -O - https://github.com/ChisBread/malior/raw/main/install.sh > /tmp/malior-install.sh && bash /tmp/malior-install.sh  && rm /tmp/malior-install.sh
+malior 'echo hello arm!'
+# 1. (可选)按照[性能优化]无痛解锁大约30%的性能
+# 2. 桌面环境
+# 部分官方镜像自带的桌面系统(比如香橙派5)不支持panfrost驱动, 有两个选择
+# 选择a: 替换官方桌面; 方便安装兼容性更好的panfrost驱动,但可能导致部分应用失效
 sudo apt-mark unhold xserver-common xserver-xorg-core xserver-xorg-dev xserver-xorg-legacy
 sudo apt update && sudo apt dist-upgrade
+# 选择b: 安装blob(闭源)驱动, malior命令前加上MALI_BLOB=x11; 只支持到OpenGL 2.1, 并且只支持x11应用, 不支持wayland
+malior install libmali-g610-blob && malior install gl4es
+MALI_BLOB=x11 malior glmark2 # 测试x11+OpenGL
+# 3. (可选)如果确认桌面环境OK, 则按照[环境安装]教程，安装开源GPU驱动
+# 4. (可选)安装wine 32位版本(会自动安装box86、box64); war3, 星际争霸 都需要wine
+malior install wine # 会有弹窗, 如果乱码了就凭感觉点一个
+malior winetricks -q fakechinese wenquanyi # 安装wine中文环境
+echo $LANG 
+# 如果显示不是zh_CN.UTF-8, 运行wine时要加上LC_ALL来保证wine为中文环境
+malior LC_ALL=zh_CN.UTF-8 winecfg
+# 5. (可选)安装steam-wip, box86下的steam暂时还不稳定, 一些独立小游戏可以跑
+malior install steam-wip
 ```
-# malior
-- 桌面替换完成后可以使用[malior](https://github.com/ChisBread/malior)安装游戏和应用
 
-# 游戏提示
-- war3
-  - 1. 下载免安装中文版war3
-  - 2. 安装、启动malior(确保启动时的LANG为zh_CN.UTF-8)
-  - 3. 使用 `malior install wine` 安装wine环境
-  - 3. 使用 `malior winetricks -q fakechinese wenquanyi` 解决中文乱码
-  - 5. 解压war3到 `~/.local/malior/war3-1.24e` 确保目录下有 `War3.exe`
-  - 6. 运行 `malior wine "~/.local/malior/war3-1.24e/War3.exe -opengl -windows"`
+# 例子
+- 魔兽争霸:冰封王座
+  - 下载免安装中文版war3, 自行搜索; 可以的话请支持正版(但我们需要免安装版…)
+  - 确保malior和wine已经安装
+  - 解压war3到 `~/.local/malior/war3-1.24e` 确保目录下有 `War3.exe`
+  - 运行 `malior LC_ALL=zh_CN.UTF-8 wine "~/.local/malior/war3-1.24e/War3.exe -opengl -windows"`
+  - 如果是闭源驱动, 运行 `MALI_BLOB=x11 malior LC_ALL=zh_CN.UTF-8 wine "~/.local/malior/war3-1.24e/War3.exe -opengl -windows"`
