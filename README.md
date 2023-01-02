@@ -49,4 +49,4 @@ sudo wget https://github.com/JeffyCN/rockchip_mirrors/raw/libmali/firmware/g610/
   - 确保malior和wine已经安装
   - 解压war3到 `~/.local/malior/war3-1.24e` 确保目录下有 `War3.exe`
   - 运行 `malior LC_ALL=zh_CN.UTF-8 wine "~/.local/malior/war3-1.24e/War3.exe -opengl -windows"`
-  - 如果是闭源驱动, 运行 `MALI_BLOB=x11 malior LC_ALL=zh_CN.UTF-8 wine "~/.local/malior/war3-1.24e/War3.exe -opengl -windows"`
+  - 如果是闭源驱动, 运行 `MALI_BLOB=x11-32 malior LC_ALL=zh_CN.UTF-8 wine "~/.local/malior/war3-1.24e/War3.exe -opengl -windows"`
