@@ -36,7 +36,13 @@ malior LC_ALL=zh_CN.UTF-8 winecfg
 ```bash
 malior install steam-wip
 ```
-
+# 可能出现异常
+1. 固件没有正确安装
+```bash
+# 下载并覆盖固件
+sudo wget https://github.com/JeffyCN/rockchip_mirrors/raw/libmali/firmware/g610/mali_csffw.bin -O /lib/firmware/mali_csffw.bin
+```
+2. 使用了官方闭源桌面+开源驱动, 或者使用闭源驱动执行了wayland应用
 # 例子
 - 魔兽争霸:冰封王座
   - 下载免安装中文版war3, 自行搜索; 可以的话请支持正版(但我们需要免安装版…)
