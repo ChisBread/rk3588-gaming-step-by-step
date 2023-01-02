@@ -5,30 +5,35 @@
 注意: 本文只是个用作参考的操作手册，不保证在某些刁钻的场景下适用
 
 # 快速开始
-- 第一步
-  - [环境安装](./gpu-envs.md) [性能优化](./rk3588-enhance/README.md)
+- 注: 标注为可选的, 可以暂时忽略
+- 0、 安装、启动malior
 ```bash
-# 标注为可选的, 可以暂时忽略
-# 0. 安装、启动malior
 wget -O - https://github.com/ChisBread/malior/raw/main/install.sh > /tmp/malior-install.sh && bash /tmp/malior-install.sh  && rm /tmp/malior-install.sh
 malior 'echo hello arm!'
-# 1. (可选)按照[性能优化]无痛解锁大约30%的性能
-# 2. 桌面环境
-# 部分官方镜像自带的桌面系统(比如香橙派5)不支持panfrost驱动, 有两个选择
+```
+- 1、 (可选)按照[性能优化](./rk3588-enhance/README.md)无痛解锁大约30%的性能
+- 2、 桌面环境
+  - 部分官方镜像自带的桌面系统(比如香橙派5)不支持panfrost驱动
+  - 注意, 有两个选择
+```bash
 # 选择a: 替换官方桌面; 方便安装兼容性更好的panfrost驱动,但可能导致部分应用失效
 sudo apt-mark unhold xserver-common xserver-xorg-core xserver-xorg-dev xserver-xorg-legacy
 sudo apt update && sudo apt dist-upgrade
 # 选择b: 安装blob(闭源)驱动, malior命令前加上MALI_BLOB=x11; 只支持到OpenGL 2.1, 并且只支持x11应用, 不支持wayland
 malior install libmali-g610-blob && malior install gl4es
 MALI_BLOB=x11 malior glmark2 # 测试x11+OpenGL
-# 3. (可选)如果确认桌面环境OK, 则按照[环境安装]教程，安装开源GPU驱动
-# 4. (可选)安装wine 32位版本(会自动安装box86、box64); war3, 星际争霸 都需要wine
+```
+- 3、 (可选)如果确认桌面环境OK, 则按照[环境安装](./gpu-envs.md)教程，安装开源GPU驱动
+- 4、 (可选)安装wine 32位版本(会自动安装box86、box64); war3, 星际争霸 都需要wine
+```bash
 malior install wine # 会有弹窗, 如果乱码了就凭感觉点一个
 malior winetricks -q fakechinese wenquanyi # 安装wine中文环境
 echo $LANG 
 # 如果显示不是zh_CN.UTF-8, 运行wine时要加上LC_ALL来保证wine为中文环境
 malior LC_ALL=zh_CN.UTF-8 winecfg
-# 5. (可选)安装steam-wip, box86下的steam暂时还不稳定, 一些独立小游戏可以跑
+```
+- 5、 (可选)安装steam-wip, box86下的steam暂时还不稳定, 一些独立小游戏可以跑
+```bash
 malior install steam-wip
 ```
 
