@@ -27,6 +27,8 @@ MALI_BLOB=x11 malior glmark2 # 测试x11+OpenGL
 - 4、 (可选)安装wine 32位版本(会自动安装box86、box64); war3, 星际争霸 都需要wine
 ```bash
 malior install wine # 会有弹窗, 如果乱码了就凭感觉点一个
+# 下载wine很慢? 使用环境变量WINE_BUILDS_MIRROR,替换wine镜像源
+## WINE_BUILDS_MIRROR=mirrors.tuna.tsinghua.edu.cn malior install wine
 malior winetricks -q fakechinese wenquanyi # 安装wine中文环境
 echo $LANG 
 # 如果显示不是zh_CN.UTF-8, 运行wine时要加上LC_ALL来保证wine为中文环境
