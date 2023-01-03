@@ -33,6 +33,7 @@ malior winetricks -q fakechinese wenquanyi # 安装wine中文环境
 echo $LANG 
 # 如果显示不是zh_CN.UTF-8, 运行wine时要加上LC_ALL来保证wine为中文环境
 malior LC_ALL=zh_CN.UTF-8 winecfg
+# 如果期望未来都是中文显示, 把`export LC_ALL=zh_CN.UTF-8`加到`~/.config/malior/envs.sh`
 ```
 - 5、 (可选)安装steam-wip, box86下的steam暂时还不稳定, 一些独立小游戏可以跑
 ```bash
